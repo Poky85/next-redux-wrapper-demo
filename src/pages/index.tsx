@@ -1,12 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { WithTranslation } from 'next-i18next'
 import {connect} from 'react-redux';
 import {NextPageContext} from 'next';
 import {State} from '../components/reducer';
-import { i18n, withTranslation } from '../../i18n';
 
-export interface PageProps extends State, WithTranslation {
+export interface PageProps extends State {
     pageProp: string;
     appProp: string;
 }
@@ -22,7 +20,6 @@ class Index extends React.Component<PageProps> {
 
             // Some custom thing for this particular page
             return {
-                namespacesRequired: ['common'],
                 pageProp: 'server'
             };
         }
@@ -32,7 +29,6 @@ class Index extends React.Component<PageProps> {
 
         // Some custom thing for this particular page
         return {
-            namespacesRequired: ['common'],
             pageProp: 'client'
         };
     }
@@ -60,9 +56,13 @@ class Index extends React.Component<PageProps> {
                 <Link href="/error">
                     <a>Navigate to error</a>
                 </Link>
+              {' | '}
+                <Link href="/i18n">
+                    <a>Navigate to i18n</a>
+                </Link>
             </div>
         );
     }
 }
 
-export default (connect(state => state)(Index));
+export default connect(state => state)(Index);
