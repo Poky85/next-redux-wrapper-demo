@@ -4,9 +4,9 @@
   "version": "7.0.0",
   "description": "Demo of redux wrapper for Next.js",
   "scripts": {
-    "start": "next",
+    "dev": "next",
     "build": "next build",
-    "serve": "next start"
+    "start": "next start"
   },
   "dependencies": {
     "next": "10.0.3",
